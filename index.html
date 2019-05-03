@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 45%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        #myChart {
+            width: 45% !important;
+            display: inline !important;
+        }
+
+        .table {
+            display: inline-block;
+        }
+
+        .column {
+            float: left;
+            width: 15%;
+            padding: 5px;
+        }
+
+        /* Clearfix (clear floats) */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"
+        integrity="sha256-xKeoJ50pzbUGkpQxDYHD7o7hxe0LaOGeguUidbq6vis=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <canvas id="myChart" width="500" height="200"></canvas>
+
+        <table id="tableContent" class="table">
+            <tr>
+                <th>Type</th>
+                <th>Count</th>
+                <th>Percentage</th>
+            </tr>
+        </table>
+
+       
+    </div>
+    
+    <div class="container">
+        <div class="btn-groups">
+            <button id="start" onclick="start()">Start</button>
+            <button id="stop" onclick="stop()" disabled>Stop</button>
+        </div>
+        <span>Elapsed: <span id="elapsed">0 ms</span></span>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="column" id="card-0">
+            </div>
+            <div class="column" id="card-1">
+            </div>
+            <div class="column" id="card-2">
+            </div>
+            <div class="column" id="card-3">
+            </div>
+            <div class="column" id="card-4">
+            </div>
+        </div>
+    </div>
+
+
+    <script src="Card.js"></script>
+    <script src="id.js"></script>
+    <script src="app.js"></script>
+    <script src="prepare.js"></script>
+    <script src="chart.js"></script>
+    <script src="load.js"></script>
+</body>
+
+</html>

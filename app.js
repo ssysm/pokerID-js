@@ -14,10 +14,15 @@ let cardImg = [];
 let deckCounter = [0,0,0,0,0,0,0,0,0,0];
 let runCounter = 0;
 
+let drawDelay = 1;
+
 let genInter;
 
 const tableContentElm = document.querySelector('#tableContent');
 const elapsedElm = document.querySelector('#elapsed');
+const currentElm = document.querySelector('#current');
+const drawDelayElm = document.querySelector('#delay');
+const cDrawDelayElm = document.querySelector('#drawDelay');
 
 let startTime = 0,endTime = 0;
 
@@ -46,6 +51,7 @@ function runTest(deck){
     for(var i = 0; i < tester.length; i++){
         if(tester[i](sortedDeck)){
             deckCounter[i] = deckCounter[i] + 1;
+            currentElm.innerHTML = pokerType[i];
             return pokerType[i];
         }
     }
@@ -67,7 +73,14 @@ function updateImage(deck){
 }
 
 function updateTime(){
-    elapsedElm.innerHTML = Date.now() - startTime + " ms";
+    elapsedElm.innerHTML = Date.now() - startTime;
+}
+
+function updateDrawDelay(){
+    drawDelay = drawDelayElm.value;
+    cDrawDelayElm.innerHTML = drawDelay;
+    clearInterval(genInter);
+    genInter = setInterval(runDeckTest,drawDelay);
 }
 
 function runDeckTest(){
@@ -84,9 +97,11 @@ function start(){
     }else{
         endTime = 0;
     }
-    genInter = setInterval(runDeckTest,1);
+    genInter = setInterval(runDeckTest,drawDelay);
     document.querySelector('#stop').removeAttribute("disabled");
+    document.querySelector('#delayApply').removeAttribute("disabled");
     document.querySelector('#start').setAttribute("disabled","disabled");
+    
 }
 
 function stop(){
@@ -94,4 +109,5 @@ function stop(){
     endTime = Date.now();
     document.querySelector('#start').removeAttribute("disabled");
     document.querySelector('#stop').setAttribute("disabled","disabled");
+    document.querySelector('#delayApply').setAttribute("disabled","disabled");
 }

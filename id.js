@@ -73,7 +73,7 @@ function threeOfKind(deck) {
 function twoPair(deck) {
     for (var i = 0; i < deck.length - 1; i++) {
         if (deck[i].rank == deck[i + 1].rank) {
-            for (var j = i +1; j < deck.length - i -1; j++) {
+            for (var j = i + 1; j < deck.length - i; j++) {
                 if (deck[j].rank == deck[j + 1].rank) {
                     return true;
                 }
@@ -91,6 +91,10 @@ function pair(deck) {
     }
 }
 
+function highCard(deck){
+    return true;
+}
+
 const tester = [
     royalFLush,
     straightFlush,
@@ -100,5 +104,6 @@ const tester = [
     straight,
     threeOfKind,
     twoPair,
-    pair
+    pair,
+    highCard
 ];

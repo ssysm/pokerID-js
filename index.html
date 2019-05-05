@@ -60,15 +60,26 @@
             </tr>
         </table>
 
-       
     </div>
-    
+
     <div class="container">
         <div class="btn-groups">
             <button id="start" onclick="start()">Start</button>
             <button id="stop" onclick="stop()" disabled>Stop</button>
         </div>
-        <span>Elapsed: <span id="elapsed">0 ms</span></span>
+
+        <div>
+            <label for="delay">Draw Delay:</label>
+            <input type="number" name="delay" id="delay" value="1" style="width:64px" min="1" max="1000">
+            <span>ms</span>
+            <button id="delayApply" disabled onclick="updateDrawDelay()">Apply</button>
+        </div>
+
+        <div>
+            <span>Elapsed: <span id="elapsed">0</span>ms</span>
+            <span>Current Delay: <span id="drawDelay">1</span>ms</span>
+            <span>Current Deck: <span id="current">N/A</span></span>
+        </div>
     </div>
 
     <div class="container">

@@ -51,8 +51,19 @@ function flush(deck) {
 }
 
 function straight(deck) {
-    for (var i = 0; i < deck.length - 1; i++) {
-        if (deck[i].rankValue + 1 !== deck[i + 1].rankValue) {
+    if (deck[0].rank == "Ace") {
+        if (deck[1].rank == "Ten") {
+            if (deck[2].rank == "Jack") {
+                if (deck[3].rank == "Queen") {
+                    if (deck[4].rank == "King") {
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    for(var i = 0; i < deck.length -1; i++){
+        if(deck[i].rankValue+1 != deck[i+1].rankValue){
             return false;
         }
     }

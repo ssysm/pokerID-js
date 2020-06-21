@@ -26,7 +26,7 @@ const cDrawDelayElm = document.querySelector('#drawDelay');
 
 let startTime = 0,endTime = 0;
 
-const fakeDeck = [ new Card({v:0,r:"Ace",s:"Spades"}),new Card({v:1,r:"King",s:"Spades"}),new Card({v:2,r:"Queen",s:"Spades"}),new Card({v:3,r:"Jack",s:"Spades"}),new Card({v:4,r:"Ten",s:"Spades"})];
+const fakeDeck = [ new Card({v:0,r:"Five",s:"Spades",rv: 4}),new Card({v:1,r:"Six",s:"Clubs",rv: 5}),new Card({v:2,r:"Seven",s:"Spades",rv: 6}),new Card({v:3,r:"Eight",s:"Spades",rv: 7}),new Card({v:4,r:"Nine",s:"Spades",rv: 8})];
 
 function generateDeck(){
     let deck = []; 
